@@ -1,20 +1,46 @@
-# Study Planner / Assignment Tracker
+# The Scholarly Curator — Study Planner & Assignment Tracker
 
-A full-stack web application for tracking assignments, due dates, and completion status. Built with Flask (Python) and React (Vite) for the CU Denver Honors Contract — CSCI 3508 Spring 2026.
+A full-stack web application for tracking assignments, due dates, and completion status. Built with Flask (Python) and React + Vite for the CU Denver Honors Contract — CSCI 3508 Spring 2026.
 
 ---
 
 ## Features
 
-- Add assignments with title, course, due date, and priority (low / medium / high)
-- View all assignments in a clean card layout
-- Edit any assignment's fields
+- Add assignments with title, course, due date, and priority (Low / Medium / High)
+- View all assignments in a card grid with color-coded status badges (Urgent / Upcoming / Planned / Done)
+- Relative due-time display ("in 2 days", "3 hours ago")
+- Edit any assignment's fields inline via modal form
 - Mark assignments complete / incomplete
 - Delete assignments
-- Sort by due date (soonest first)
-- Filter by course
-- "Due Soon!" warning for assignments due within 48 hours
+- Sort by due date or priority
+- Filter by course via pill buttons
+- "Due Soon" notification badge for assignments due within 48 hours
+- Collapsible sidebar with open/close toggle
+- Mobile bottom nav + desktop floating action button (FAB)
 - Data persists across restarts via `backend/assignments.json`
+
+---
+
+## Design
+
+**"The Scholarly Curator"** — redesigned with Google Stitch (Material Design 3).
+
+- Fonts: **Plus Jakarta Sans** (headings) + **Manrope** (body)
+- Icons: **Material Symbols Outlined** (Google Fonts)
+- Primary color: `#0d2d7a` (deep navy blue)
+- UI: shadcn-style collapsible sidebar, sticky header, hero stats section
+
+---
+
+## Tech Stack
+
+| Layer | Tech |
+|-------|------|
+| Frontend | React 19, Vite 8 |
+| Styling | Tailwind CSS v4 (`@tailwindcss/vite`), clsx, tailwind-merge |
+| Backend | Python Flask 3.0 |
+| Persistence | JSON file (`assignments.json`) |
+| Tests | pytest 8 |
 
 ---
 
@@ -31,14 +57,23 @@ study-planner-assignment-tracker/
     requirements.txt
   frontend/
     src/
-      api.js                     # Fetch wrappers for all API calls
-      App.jsx                    # Top-level state and layout
+      api.js                        # Fetch wrappers for all API calls
+      App.jsx                       # Top-level state, layout, sidebar wiring
+      App.css                       # Modal backdrop, card hover styles
+      index.css                     # Tailwind v4 import + CSS custom properties
       components/
-        AssignmentForm.jsx       # Add / Edit form
-        AssignmentList.jsx       # List of cards
-        AssignmentCard.jsx       # Single assignment card
-        FilterSort.jsx           # Course filter + sort controls
-    vite.config.js
+        AssignmentForm.jsx          # Add / Edit modal form
+        AssignmentList.jsx          # Responsive card grid
+        AssignmentCard.jsx          # Single assignment card with status badge
+        FilterSort.jsx              # Course pill filter + sort dropdown
+        ui/
+          sidebar.jsx               # shadcn-style collapsible sidebar primitives
+      lib/
+        utils.js                    # cn() helper (clsx + tailwind-merge)
+      utils/
+        time.js                     # formatDueDate(), getStatusLabel()
+    index.html
+    vite.config.js                  # Tailwind plugin + @ path alias
   tests/
     test_models.py      # T01–T04
     test_repository.py  # T05–T08

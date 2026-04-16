@@ -1,16 +1,44 @@
-# React + Vite
+# Frontend — The Scholarly Curator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React 19 + Vite 8 frontend for the Study Planner & Assignment Tracker.
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **React 19** with hooks (useState, useEffect, useMemo)
+- **Vite 8** with `@vitejs/plugin-react`
+- **Tailwind CSS v4** via `@tailwindcss/vite` plugin
+- **clsx** + **tailwind-merge** for conditional class merging (`cn()` helper)
+- **Material Symbols Outlined** icons (Google Fonts CDN)
+- **Plus Jakarta Sans** + **Manrope** fonts (Google Fonts CDN)
 
-## React Compiler
+## Path Alias
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+`@` resolves to `./src` — configured in `vite.config.js`.
 
-## Expanding the ESLint configuration
+```js
+import { cn } from "@/lib/utils";
+import { useSidebar } from "@/components/ui/sidebar";
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Dev Server
+
+```bash
+npm install
+npm run dev
+# http://localhost:5173
+```
+
+API calls proxy to `http://localhost:5000` (Flask backend must be running).
+
+## Key Components
+
+| File | Purpose |
+|------|---------|
+| `App.jsx` | Root layout, state, sidebar wiring |
+| `components/AssignmentCard.jsx` | Card with status badge, checkbox, edit/delete |
+| `components/AssignmentForm.jsx` | Add/edit modal form |
+| `components/AssignmentList.jsx` | Responsive grid of cards |
+| `components/FilterSort.jsx` | Course pill filter + sort dropdown |
+| `components/ui/sidebar.jsx` | Collapsible sidebar primitives (SidebarProvider, Sidebar, SidebarTrigger, …) |
+| `lib/utils.js` | `cn()` — clsx + tailwind-merge |
+| `utils/time.js` | `formatDueDate()`, `getStatusLabel()` |
