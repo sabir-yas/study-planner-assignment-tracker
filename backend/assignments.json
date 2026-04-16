@@ -1,3 +1,22 @@
 {
-  "assignments": []
+  "assignments": [
+    {
+      "id": "240f03e8-015b-4602-8a7f-eb0ad43d508b",
+      "title": "Math homework",
+      "course": "C",
+      "due_date": "2026-04-19",
+      "priority": "medium",
+      "completed": false,
+      "created_at": "2026-04-11T15:40:17"
+    },
+    {
+      "id": "b3b258d3-629b-4ded-ab77-0a0d33a7c876",
+      "title": "Math Lab report",
+      "course": "CSCI 2312",
+      "due_date": "2026-04-16",
+      "priority": "medium",
+      "completed": false,
+      "created_at": "2026-04-16T09:40:57"
+    }
+  ]
 }
