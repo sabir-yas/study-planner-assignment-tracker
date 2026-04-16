@@ -1,15 +1,6 @@
 {
   "assignments": [
     {
-      "id": "240f03e8-015b-4602-8a7f-eb0ad43d508b",
-      "title": "Math homework",
-      "course": "C",
-      "due_date": "2026-04-19",
-      "priority": "medium",
-      "completed": false,
-      "created_at": "2026-04-11T15:40:17"
-    },
-    {
       "id": "b3b258d3-629b-4ded-ab77-0a0d33a7c876",
       "title": "Math Lab report",
       "course": "CSCI 2312",
@@ -17,6 +8,15 @@
       "priority": "medium",
       "completed": false,
       "created_at": "2026-04-16T09:40:57"
+    },
+    {
+      "id": "4c02443b-3fc9-41bf-bc7f-21fce4598a83",
+      "title": "Deep Learning Project",
+      "course": "CSCI 4023",
+      "due_date": "2026-04-20",
+      "priority": "high",
+      "completed": false,
+      "created_at": "2026-04-16T14:04:56"
     }
   ]
 }

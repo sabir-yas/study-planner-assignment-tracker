@@ -1,5 +1,5 @@
 # The Scholarly Curator — Study Planner & Assignment Tracker
-
+![alt text](image.png)
 A full-stack web application for tracking assignments, due dates, and completion status. Built with Flask (Python) and React + Vite for the CU Denver Honors Contract — CSCI 3508 Spring 2026.
 
 ---
